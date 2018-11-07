@@ -6,9 +6,6 @@ import java.util.List;
 
 public class AnnotationExample {
 
-	public static void main(String[] args) {
-	}
-
 	@Override
 	@MethodInfo(author = "Varkey", comments = "Main method", date = "Oct 8 2018", revision = 1)
 	public String toString() {

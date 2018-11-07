@@ -3,7 +3,8 @@ package io.exnihilo.reflection;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-public class ReflectionTest {
+public class
+ReflectionTest {
 
     private String stringName = "stringValue";
     private int integer = 0;
