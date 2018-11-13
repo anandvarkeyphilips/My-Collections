@@ -16,8 +16,8 @@ ReflectionTest {
             if (field.getType().isAssignableFrom(String.class)) {
                 System.out.println("field.getModifiers(): " + field.getModifiers());
                 System.out.println("Fields: " + Modifier.toString(field.getModifiers())); // modifiers
-                System.out.println("field.getType().getName(): " + field.getType());  //type var name
-                System.out.println("field.getName(): " + field.getName());        //real var name
+                System.out.println("field.getType().getName(): " + field.getType());  //type var STRING_CONSTANT_IN_INTERFACE_A
+                System.out.println("field.getName(): " + field.getName());        //real var STRING_CONSTANT_IN_INTERFACE_A
                 field.setAccessible(true);                                //set readable
                 System.out.println("field.get(o): " + field.get(o));  //get var values
                 field.set(o,"NewstringValue");

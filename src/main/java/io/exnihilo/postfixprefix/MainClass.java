@@ -1,11 +1,18 @@
 package io.exnihilo.postfixprefix;
 
-import io.exnihilo.postfixprefix.packageone.A;
+class A {
+    private int methodOne(int i) {
+        return ++i;
+    }
+
+    public int methodTwo(int i) {
+        return methodOne(++i);
+    }
+}
 
 class B extends A {
 
     int methodOne(int i) {
-
         System.out.println(i);
         int data = methodTwo(i++);
         System.out.println(i);
@@ -16,6 +23,6 @@ class B extends A {
 
 public class MainClass {
     public static void main(String[] args) {
-        System.out.println(new B().methodOne(101));
+        new B().methodOne(101);
     }
 }

@@ -13,3 +13,11 @@ public class PostfixDoubt {
         return 0;
     }
 }
+/**
+ * x = x++;
+ * is equivalent to
+ * int tmp = x;
+ * x++;
+ * x = tmp;
+ * https://stackoverflow.com/questions/7911776/what-is-x-after-x-x
+ **/
