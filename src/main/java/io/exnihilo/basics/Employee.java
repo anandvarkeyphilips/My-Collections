@@ -1,91 +1,66 @@
 package io.exnihilo.basics;
 
-//constructor
-//instance variables, static variable
-//methods: getters and setters
-//keywords: this, new
+import lombok.Data;
 
-public class Employee {
+import java.io.*;
+import java.lang.reflect.Constructor;
 
-	public static int numberOfEmployees;
+@Data
+public class Employee implements Cloneable, Serializable {
 
-	private int   employeeID;
-	private String employeeName;
-	private String address;
-	private String startingYear;
+    private static final long serialVersionUID = 1L;
 
-	public Employee( int id, String name, String addr, String year) {
+    public static int numberOfEmployees;
 
-		employeeID = id;
-		employeeName = name;
+    private int employeeID;
+    private String employeeName;
+    private String address;
+    private String startingYear;
 
-		setAddress( addr );
+    public Employee(int id, String name, String addr, String year) {
+        employeeID = id;
+        employeeName = name;
+        setAddress(addr);
+        startingYear = year;
+        numberOfEmployees++;
+    }
 
-		startingYear = year;
+    public Employee() {
+        this(10000, null, null, null);
+    }
 
-		numberOfEmployees++;
-	}
+    public static void main(String args[]) throws Exception {
 
-	public Employee() { this(10000, null, null, null); };
+        Employee phil, george, copy;
+        phil = new Employee();
+        System.out.println(phil);
+        System.out.println("Number of employees: " + Employee.numberOfEmployees);
 
-//Set methods
-	public void setAddress( String address ) {
+        phil = new Employee(10023, "Phil Coulthard", "70 The Pond, Seneca@York", "2002");
+        george = new Employee(10089, "George Farr", "678, IBM Toronto Lab", "1980");
+        copy = george;
 
-		this.address = address;
-	}
+        System.out.println(phil);
+        System.out.println(george);
+        System.out.println(copy);
+        System.out.println("Number of employees: " + Employee.numberOfEmployees);
 
-	public void setEmployeeID(int employeeID) {this.employeeID = employeeID;}
-	public void setEmployeeName(String employeeName) {this.employeeName = employeeName;}
-	public void setStartingYear(String startingYear) {this.startingYear = startingYear;}
 
-//Get methods
+        Employee emp1 = new Employee();
+        Employee emp2_1 = (Employee) Class.forName("io.exnihilo.basics.Employee").newInstance();
+        Employee emp2_2 = Employee.class.newInstance();
 
-	public String getAddress() { return address; }
+        Constructor<Employee> employeeConstructor = Employee.class.getConstructor();
+        Employee emp3 = employeeConstructor.newInstance();
 
-	public int getEmployeeID() {return employeeID;}
-	public String getEmployeeName() {return employeeName;}
-	public String getStartingYear() {return startingYear;}
+        Employee emp4 = (Employee) emp3.clone();
 
-	public String toString() {
+        ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream("emp4.obj"));
+        // writing to object
+        o.writeObject(emp4);
+        o.close();
 
-		String s;
-
-		s =   "*****************************************n" +
-		"         Employee Information        *n" +
-		"*****************************************n" +
-		"ID: " + employeeID + "n" +
-		"Name: " + employeeName + "n" +
-		"Address: " + address + "n" +
-		"Starting Year: " + startingYear + "nn";
-
-		return s;
-	}
-
-	public static void main( String args[] ) {
-
-		Employee phil, george,copy;
-
-		phil = new Employee();
-		System.out.println( phil );
-		System.out.println( "t number of employees: " + Employee.numberOfEmployees +"n" );
-
-//Part 2
-		phil = new Employee( 10023, "Phil Coulthard",
-			"70 The Pond, Seneca@York", "2002");
-
-		george = new Employee( 10089, "George Farr",
-			"678, IBM Toronto Lab", "1980" );
-		
-		copy = george;
-		
-		System.out.println( phil );
-		System.out.println( george );
-		System.out.println( copy );
-		
-		System.out.println( "t number of employees: " + Employee.numberOfEmployees );
-
-//a special case about the default constructor:
-//The Java compiler creates the default constructor if
-//does not have *any* constructors
-	}
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("emp4.obj"));
+        Employee emp5 = (Employee) in.readObject();
+    }
 }

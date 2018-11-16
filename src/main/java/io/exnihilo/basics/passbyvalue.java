@@ -31,14 +31,14 @@ Likewise:
 public static void main( String[] args ) {
     Dog aDog = new Dog("Max");
     foo(aDog);
-    // when foo(...) returns, the name of the dog has been changed to "Fifi"
+    // when foo(...) returns, the STRING_CONSTANT_IN_INTERFACE_A of the dog has been changed to "Fifi"
     aDog.getName().equals("Fifi"); // true
 }
 
 public static void foo(Dog d) {
     d.getName().equals("Max"); // true
-    // this changes the name of d to be "Fifi"
+    // this changes the STRING_CONSTANT_IN_INTERFACE_A of d to be "Fifi"
     d.setName("Fifi");
 }
-In the above example, FiFi is the dog's name after call to foo(aDog) because the object's name was set inside of foo(...). Any operations that foo performs on d are such that, for all practical purposes, they are performed on aDog itself (except when d is changed to point to a different Dog instance like d = new Dog("Boxer")).
+In the above example, FiFi is the dog's STRING_CONSTANT_IN_INTERFACE_A after call to foo(aDog) because the object's STRING_CONSTANT_IN_INTERFACE_A was set inside of foo(...). Any operations that foo performs on d are such that, for all practical purposes, they are performed on aDog itself (except when d is changed to point to a different Dog instance like d = new Dog("Boxer")).
 */

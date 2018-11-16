@@ -13,11 +13,7 @@ class Complex {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Complex)) return false;
-        Complex complex = (Complex) o;
-        return Double.compare(complex.re, re) == 0 &&
-                Double.compare(complex.im, im) == 0;
+        return Objects.equals(o,this);
     }
 
     @Override
