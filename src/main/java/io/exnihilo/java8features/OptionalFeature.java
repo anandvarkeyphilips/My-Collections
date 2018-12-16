@@ -5,7 +5,6 @@ import java.util.Optional;
 public class OptionalFeature {
 
    public static void main(String args[]) {
-      OptionalFeature optionalFeature = new OptionalFeature();
       Integer value1 = null;
       Integer value2 = new Integer(10);
 		
@@ -14,6 +13,8 @@ public class OptionalFeature {
 		
       //Optional.of - throws NullPointerException if passed parameter is null
       Optional<Integer> b = Optional.of(value2);
+
+      OptionalFeature optionalFeature = new OptionalFeature();
       System.out.println(optionalFeature.sum(a,b));
    }
 	

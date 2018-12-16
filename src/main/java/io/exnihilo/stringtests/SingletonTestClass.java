@@ -25,9 +25,9 @@ final class SingletonClass implements Serializable {
         return FooLoader.INSTANCE;
     }
 }
+
 public class SingletonTestClass {
     public static void main(String[] args) {
         SingletonClass.getInstance();
-
     }
 }

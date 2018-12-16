@@ -12,7 +12,7 @@ public class DifferentPackageTestClass {
          Modifier	Class	Pkg	SubCls	World
          public	        Y	Y	    Y	Y
          protected	    Y	Y	    Y	N
-         no modifier    Y	Y	    N	N
+         no modifier    Y	Y	    Y	N
          private	    Y	N	    N	N
          ****************************************/
 
