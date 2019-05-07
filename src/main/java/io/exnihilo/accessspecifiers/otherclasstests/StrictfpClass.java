@@ -9,7 +9,7 @@ strictfp interface StrictfpInterface {
     // all  methods here becomes implicitly
     // strictfp when used during inheritance.
 
-    // /strictfp double mul(); // compile-time error here
+    //strictfp double mul(); // compile-time error here
 }
 
 class Car {

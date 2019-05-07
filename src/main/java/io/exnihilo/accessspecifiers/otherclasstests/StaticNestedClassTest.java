@@ -19,5 +19,7 @@ public class StaticNestedClassTest {
     public static void main(String args[]) {
         StaticNestedClass nested = new StaticNestedClass();
         nested.innerStaticClassMethod();
+
+        StaticNestedClass.innerStaticClassMethod();
     }
 }
