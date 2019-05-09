@@ -7,17 +7,17 @@ public class AnnotationParsingTest {
 
     public static void main(String[] args) {
         try {
-            for (Method AnnotationExampleClassMethod : AnnotationParsingTest.class.getClassLoader().loadClass(("io.exnihilo.annotations.AnnotationExample")).getMethods()) {
+            for (Method aAnnotationExampleClassMethod : AnnotationParsingTest.class.getClassLoader().loadClass(("io.exnihilo.annotations.AnnotationExample")).getMethods()) {
                 // checks if MethodInfo annotation is present for the method
-                if (AnnotationExampleClassMethod.isAnnotationPresent(io.exnihilo.annotations.MethodInfo.class)) {
+                if (aAnnotationExampleClassMethod.isAnnotationPresent(io.exnihilo.annotations.MethodInfo.class)) {
                     try {
                         // iterates all the annotations available in the method
-                        for (Annotation annotation : AnnotationExampleClassMethod.getDeclaredAnnotations()) {
-                            System.out.println("Annotation in '" + AnnotationExampleClassMethod + "' : " + annotation);
+                        for (Annotation annotation : aAnnotationExampleClassMethod.getDeclaredAnnotations()) {
+                            System.out.println("Annotation in '" + aAnnotationExampleClassMethod + "' : " + annotation);
                         }
-                        MethodInfo methodInfoAnnotation = AnnotationExampleClassMethod.getAnnotation(io.exnihilo.annotations.MethodInfo.class);
+                        MethodInfo methodInfoAnnotation = aAnnotationExampleClassMethod.getAnnotation(io.exnihilo.annotations.MethodInfo.class);
                         if (methodInfoAnnotation.revision() == 1) {
-                            System.out.println("Method with revision no 1 = " + AnnotationExampleClassMethod);
+                            System.out.println("Method with revision no 1 = " + aAnnotationExampleClassMethod);
                         }
 
                     } catch (Throwable ex) {
