@@ -130,6 +130,7 @@ class City implements Cloneable {
         this.name = new String(city.name);
     }
 
+    @Override
     public City clone() throws CloneNotSupportedException {
         return (City) super.clone();
     }
